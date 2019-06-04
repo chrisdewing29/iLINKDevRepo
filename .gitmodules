@@ -1,0 +1,3 @@
+[submodule "iLAB_US_Framework"]
+	path = iLAB_US_Framework
+	url = https://github.com/iLABQA/iLAB_US_Framework.git

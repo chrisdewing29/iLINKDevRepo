@@ -11,6 +11,13 @@ import unittest
 import allure
 import pytest
 
+'''
+Note that when using unittest, the methods have to be in numerical or alphabetic order.
+If the are not in numerical or alphabetic order, the methods will run out of order in the class.
+ 
+'''
+
+
 
 @allure.story('[Conversation] - Automate  the  Signin  screen across all three apps')
 @allure.feature('Web App SigninPage Tests')
@@ -20,7 +27,7 @@ class test_class(unittest.TestCase):
 
     #This function logs the user into iLINK Dev
     @allure.testcase("Test1")
-    def test_login(self):
+    def test_a_login(self):
         Browser_Management.open_browser("gc", "http://ilinkdev.ilabquality.com/")
         Login = Login_Class(Global_Variables.global_Driver)
         Login.input_username("xpath", '//*[@id="user"]', "CDewingAdmin")
@@ -30,7 +37,7 @@ class test_class(unittest.TestCase):
 
     #This function clicks through each menu button option with a 2 second pause in between
     @allure.testcase("Test2")
-    def test_menu_navigation(self):
+    def test_a_menu_navigation(self):
         locator = Locators(Global_Variables.global_Driver)
         locator.click_element("linktext", "Global Events")
         time.sleep(2)
@@ -48,13 +55,13 @@ class test_class(unittest.TestCase):
         time.sleep(2)
         locator.click_element("linktext", "Dashboard")
         time.sleep(2)
-        
+
 
     #This function uses the iLINK Dev main search to search for iTEST.
     #The function then navigates through 9 pages of the iTEST method description.
     #Lastly, the function clicks the revision button, scrolls to the bottom of the page,and clicks on the dashbaord page
     @allure.testcase("Test3")
-    def test_search_itest(self):
+    def test_b_search_itest(self):
         locator = Locators(Global_Variables.global_Driver)
         locator.click_element("xpath", "/html/body/div[2]/header/nav/div[2]/a[1]/i")
         locator.send_text("id", "s", "iTEST")
@@ -87,7 +94,7 @@ class test_class(unittest.TestCase):
     #The function then clicks on message button and sends a message to the same user that was searched for.
     #A Gail email will then be sent to that user informing them that a message was sent via iLINK Dev.
     @allure.testcase("Test4")
-    def test_member_search(self):
+    def test_c_member_search(self):
         locator = Locators(Global_Variables.global_Driver)
         locator.click_element("linktext", "Members")
         locator.send_text("id", "members_search", "Chris Dewing")
@@ -119,7 +126,7 @@ class test_class(unittest.TestCase):
     
     #This function edits a selected users's profile by adding a new cell phone number
     @allure.testcase("Test5")
-    def test_user_profile(self):
+    def test_d_user_profile(self):
         locator = Locators(Global_Variables.global_Driver)
         locator.click_element("id", "user-thumb")
         time.sleep(2)
@@ -135,7 +142,7 @@ class test_class(unittest.TestCase):
 
     #This function checks to see if the user has any notifications.
     @allure.testcase("Test6")
-    def test_menu_navigation2(self):
+    def test_e_menu_navigation2(self):
         locator = Locators(Global_Variables.global_Driver)
         locator.click_element("linktext", "Posts")
         time.sleep(2)
@@ -152,7 +159,7 @@ class test_class(unittest.TestCase):
     #This functions attempts to submit a survey and IT help desk request without filling out all information.
     #The system should highlight red indicating what fields need to still be filed out before submitting.
     @allure.testcase("Test7")
-    def test_submit_issue_error(self):
+    def test_f_submit_issue_error(self):
         locator = Locators(Global_Variables.global_Driver)
         time.sleep(1)
         locator.click_element("xpath", "//*[@id='fld_8949845_2']")

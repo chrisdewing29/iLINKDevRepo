@@ -3,7 +3,6 @@ from iLAB_US_Framework.Global import Objects
 from iLAB_US_Framework.iLAB_Selenium import Browser_Management
 from iLAB_US_Framework.iLAB_Selenium import Login
 from iLAB_US_Framework.iLAB_Selenium.Locator import Locators
-
 from iLAB_US_Framework.iLAB_Selenium import Wait_Until
 from iLAB_US_Framework.iLAB_Selenium.Login import Login_Class
 import time
@@ -11,22 +10,29 @@ import unittest
 import allure
 import pytest
 
+
 '''
 Note that when using unittest, the methods have to be in numerical or alphabetic order.
-If the are not in numerical or alphabetic order, the methods will run out of order in the class.
+If they are not in numerical or alphabetic order, the methods will run out of order in the class.
  
 '''
-
-
 
 @allure.story('[Conversation] - Automate  the  Signin  screen across all three apps')
 @allure.feature('Web App SigninPage Tests')
 
 #There are 7 functions in this class that test different actions of iLINK Dev
-class test_class(unittest.TestCase):
+
+
+class MainTest(unittest.TestCase):
 
     #This function logs the user into iLINK Dev
     @allure.testcase("Test1")
+    @allure.description("This function logs the user into iLINK Dev")
+    @allure.title("Login")
+    @allure.severity("Critical")
+    @allure.testcase("Validate Login")
+    @allure.step("Login to iLINK Dev using username and password")
+
     def test_a_login(self):
         Browser_Management.open_browser("gc", "http://ilinkdev.ilabquality.com/")
         Login = Login_Class(Global_Variables.global_Driver)
@@ -37,6 +43,9 @@ class test_class(unittest.TestCase):
 
     #This function clicks through each menu button option with a 2 second pause in between
     @allure.testcase("Test2")
+    @allure.description("This function clicks through each menu button option with a 2 second pause in between")
+    @allure.title("Menu Navigation")
+    @allure.step("Click Through the Menu Buttons")
     def test_a_menu_navigation(self):
         locator = Locators(Global_Variables.global_Driver)
         locator.click_element("linktext", "Global Events")
@@ -56,11 +65,14 @@ class test_class(unittest.TestCase):
         locator.click_element("linktext", "Dashboard")
         time.sleep(2)
 
-
+    
     #This function uses the iLINK Dev main search to search for iTEST.
     #The function then navigates through 9 pages of the iTEST method description.
     #Lastly, the function clicks the revision button, scrolls to the bottom of the page,and clicks on the dashbaord page
     @allure.testcase("Test3")
+    @allure.description("This function uses the iLINK Dev main search to search for iTEST.\n The function then navigates through 9 pages of the iTEST method description. \n Lastly, the function clicks the revision button, scrolls to the bottom of the page,and clicks on the dashbaord page")
+    @allure.title("Search For iTEST Description")
+    @allure.step("Search for iTEST and then click through 9 of the Read Me slides")
     def test_b_search_itest(self):
         locator = Locators(Global_Variables.global_Driver)
         locator.click_element("xpath", "/html/body/div[2]/header/nav/div[2]/a[1]/i")
@@ -92,8 +104,11 @@ class test_class(unittest.TestCase):
 
     #This function searches for a member in iLINK and clicks through the menu options for that selected user.
     #The function then clicks on message button and sends a message to the same user that was searched for.
-    #A Gail email will then be sent to that user informing them that a message was sent via iLINK Dev.
+    #A Gmail email will then be sent to that user informing them that a message was sent via iLINK Dev.
     @allure.testcase("Test4")
+    @allure.description("#This function searches for a member in iLINK and clicks through the menu options for that selected user. \n The function then clicks on message button and sends a message to the same user that was searched for. \n A Gmail email will then be sent to that user informing them that a message was sent via iLINK Dev.")
+    @allure.title("Search for an iLAB Employee")
+    @allure.step("Search for an iLAB employee and send a message to that same employee ")
     def test_c_member_search(self):
         locator = Locators(Global_Variables.global_Driver)
         locator.click_element("linktext", "Members")
@@ -126,6 +141,9 @@ class test_class(unittest.TestCase):
     
     #This function edits a selected users's profile by adding a new cell phone number
     @allure.testcase("Test5")
+    @allure.description("This function edits a selected users's profile by adding a new cell phone number")
+    @allure.title("Edit iLAB Employee Profile")
+    @allure.step("Click the edit view of the employee profile and change the phone number to (555)555-5555")
     def test_d_user_profile(self):
         locator = Locators(Global_Variables.global_Driver)
         locator.click_element("id", "user-thumb")
@@ -142,6 +160,9 @@ class test_class(unittest.TestCase):
 
     #This function checks to see if the user has any notifications.
     @allure.testcase("Test6")
+    @allure.description("This function checks to see if the user has any notifications.")
+    @allure.title("Check Notifications")
+    @allure.step("Click the bell icon and see if there are any notifications")
     def test_e_menu_navigation2(self):
         locator = Locators(Global_Variables.global_Driver)
         locator.click_element("linktext", "Posts")
@@ -159,6 +180,9 @@ class test_class(unittest.TestCase):
     #This functions attempts to submit a survey and IT help desk request without filling out all information.
     #The system should highlight red indicating what fields need to still be filed out before submitting.
     @allure.testcase("Test7")
+    @allure.description("This functions attempts to submit a survey and IT help desk request without filling out all information.\n The system should highlight red indicating what fields need to still be filed out before submitting.")
+    @allure.title("Submit Incomplete Survey and IT Help Desk Request")
+    @allure.step("On the main page, fill out one line of the survey and IT support box, then click submit on both")
     def test_f_submit_issue_error(self):
         locator = Locators(Global_Variables.global_Driver)
         time.sleep(1)

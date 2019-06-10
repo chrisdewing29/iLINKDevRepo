@@ -106,7 +106,7 @@ class MainTest(unittest.TestCase):
     #The function then clicks on message button and sends a message to the same user that was searched for.
     #A Gmail email will then be sent to that user informing them that a message was sent via iLINK Dev.
     @allure.testcase("Test4")
-    @allure.description("#This function searches for a member in iLINK and clicks through the menu options for that selected user. \n The function then clicks on message button and sends a message to the same user that was searched for. \n A Gmail email will then be sent to that user informing them that a message was sent via iLINK Dev.")
+    @allure.description("This function searches for a member in iLINK and clicks through the menu options for that selected user. \n The function then clicks on message button and sends a message to the same user that was searched for. \n A Gmail email will then be sent to that user informing them that a message was sent via iLINK Dev.")
     @allure.title("Search for an iLAB Employee")
     @allure.step("Search for an iLAB employee and send a message to that same employee ")
     def test_c_member_search(self):

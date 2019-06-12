@@ -80,7 +80,7 @@ class MainTest(unittest.TestCase):
         locator.click_element("linktext", "Dashboard")
         time.sleep(2)
 
-    
+
     #This function uses the iLINK Dev main search to search for iTEST.
     #The function then navigates through 9 pages of the iTEST method description.
     #Lastly, the function clicks the revision button, scrolls to the bottom of the page,and clicks on the Dashbaord page
@@ -162,7 +162,7 @@ class MainTest(unittest.TestCase):
         time.sleep(2)
         locator.click_element("id", "send")
 
-    
+
     #This function edits a selected users's profile by adding a new cell phone number
     @allure.testcase("Test5")
     @allure.description("This function edits a selected users's profile by adding a new cell phone number")
@@ -240,6 +240,20 @@ class MainTest(unittest.TestCase):
         Login.input_password("xpath", "//*[@id='password']/div[1]/div/div[1]/input", "The199329hill")
         Login.click_login_button("xpath", "/html/body/div[1]/div[1]/div[2]/div[2]/div/div/div[2]/div/div[2]/div/div"
                                           "[1]/div/span/span")
+        time.sleep(3)
+
+    #This function will attempt to click the xpath of an element that doesn't exist on the homepage of Gmail
+    @allure.testcase("Test9")
+    @allure.title("Fail Test Case")
+    @allure.severity("Low")
+    @allure.description("This function will attempt to click the xpath of an element that doesn't exist on the "
+                        "homepage of Gmail")
+    @allure.step("Test case will automatically fail")
+    def test_i_fail(self):
+        locator = Locators(Global_Variables.global_Driver)
+        locator.click_element("xpath", "/html/body/div[1]/div[1]/div[2]/div[2]/div/div/div[2]/div/div[2]/div/div[1]"
+                                          "/div/span/span" )
+
 
 
 

@@ -14,14 +14,15 @@ import pytest
 '''
 Created by Chris Dewing
 
-Last Edited: 6/11/19
+Last Edited: 6/12/19
 
-Version 2.0:
+Version 2.1:
 -Added Gmail check test case
 -Added Allure Decorators
 -Checked spelling 
 -Fixed spacing issues
 -Class name changed from test_class to MainTest
+-Added negative test case
 
 Details:
 The program runs through various actions that can be performed on the iLINK Dev website. In addition, 
@@ -36,7 +37,7 @@ method in the class starts off as test_'letter'...
 @allure.story('[Conversation] - Automate  the  Signin  screen across all three apps')
 @allure.feature('Web App SigninPage Tests')
 
-#There are 8 functions in this class that test different actions of iLINK Dev
+#There are 9 functions in this class that test different actions of iLINK Dev
 class MainTest(unittest.TestCase):
 
     #This function logs the user into iLINK Dev
@@ -52,6 +53,7 @@ class MainTest(unittest.TestCase):
         Login.input_username("xpath", '//*[@id="user"]', "CDewingAdmin")
         Login.input_password("xpath", '//*[@id="pass"]', "p!9%ni!EOb2wdBpz*)QdrAOQ")
         Login.click_login_button("xpath", '//*[@id="wp-submit"]')
+
 
 
     #This function clicks through each menu button option with a 2 second pause in between
